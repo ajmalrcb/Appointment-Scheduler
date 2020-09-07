@@ -20,11 +20,7 @@ export default function App() {
       return {
         backgroundColor: "#d2b8e3"
       };
-    else if (isAdjacentItem(i)) {
-      return {
-        backgroundColor: "#93ca38"
-      };
-    } else if (selected.indexOf(i) > 0)
+     else if (selected.indexOf(i) > 0)
       return {
         backgroundColor: "#4f9929"
       };
@@ -45,7 +41,12 @@ export default function App() {
 
   const handleClick = i => {
     const selectedIndex = selected.indexOf(i);
-    if (selectedIndex) setSelected([...selected, i]);
+    if (selectedIndex===-1) setSelected([...selected, i]);
+    else{
+      const sliced=[...selected].slice(selectedIndex,1)
+      setSelected([...sliced])
+    }
+    
   };
   return (
     <>
